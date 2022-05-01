@@ -72,6 +72,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         // Inherited from WeatherManagerDelegate.didFailWithError(error:).
         // WeatherManagerDelegate.didFailWithError(error:)에서 상속됨.
         print(error)
+        // 프린트 에러
     }
 
 }
