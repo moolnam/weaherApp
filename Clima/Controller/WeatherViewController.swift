@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManagerDelegate {
+class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +24,17 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
     @IBOutlet weak var searchTextField: UITextField!
     
     
+    
+    
+    
+
+}
+
+//MARK: - UITextFieldDelegate
+
+
+extension WeatherViewController: UITextFieldDelegate {
+    // 클래스도 익스텐션 할 수 있다. 익스텐션에 UITextFieldDelegate 프로토콜을 가져왔다.
     @IBAction func searchPressed(_ sender: UIButton) {
         // 돋보기 버튼으로 검색
         searchTextField.endEditing(true)
@@ -59,7 +70,12 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         }
         searchTextField.text = ""
     }
-    
+}
+
+//MARK: - WeatherManagerDelegate
+
+extension WeatherViewController: WeatherManagerDelegate {
+    // 프로토콜 WeatherManagerDelegate을 가져왔다. 
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         DispatchQueue.main.async {
             self.temperatureLabel.text = weather.temperatureString
@@ -74,6 +90,4 @@ class WeatherViewController: UIViewController, UITextFieldDelegate, WeatherManag
         print(error)
         // 프린트 에러
     }
-
 }
-
