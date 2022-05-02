@@ -16,6 +16,8 @@ struct WeatherData: Codable {
 }
 
 
+
+
 struct Main: Codable {
     let temp: Double
 }
